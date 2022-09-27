@@ -5,6 +5,7 @@ import 'package:linkedinui/MainScreen/notifications.dart';
 import 'package:linkedinui/MainScreen/jobs.dart';
 import 'package:linkedinui/MainScreen/Home.dart';
 import 'package:linkedinui/searchPage.dart';
+import 'package:linkedinui/MainScreen/NavigationDrawer.dart';
 
 class mainHomeScreenPage extends StatefulWidget {
   const mainHomeScreenPage({super.key});
@@ -100,6 +101,7 @@ class _homeState extends State<mainHomeScreenPage> {
                 icon: Icon(Icons.notifications), label: 'Notifications'),
             BottomNavigationBarItem(icon: Icon(Icons.work), label: 'Jobs'),
           ]),
+      drawer: sideDrawer(),
     );
   }
 }
