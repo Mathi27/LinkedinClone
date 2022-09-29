@@ -26,8 +26,8 @@ AndroidNotificationChannel channel = AndroidNotificationChannel(
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
-    
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async{
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print("A big Message just showed up: ${message.messageId}");
 }
@@ -36,8 +36,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  
-  await flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.createNotificationChannel(channel);
+
+  await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel);
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     alert: true,
@@ -56,45 +59,6 @@ class LinkedIn extends StatefulWidget {
 }
 
 class _LinkedInState extends State<LinkedIn> {
-  @override
-  void initState(){
-    super.initState();
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) { 
-      RemoteNotification? notification = message.notification;
-      AndroidNotification? android = message.notification?.android;
-      if(notification!=null && android!=null){
-        flutterLocalNotificationsPlugin.show(
-          notification.hashCode,
-          notification.title,
-          notification.body,
-          NotificationDetails(
-            android: AndroidNotificationDetails(
-              channel.id,
-              channel.name,
-              // channel.description,
-              color: Colors.blue,
-              playSound: true,
-              icon: '@mipmap/ic_launcher'
-            ),
-          ),
-        );
-      }
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print("A new on message opned event was published");
-      RemoteNotification? notification = message.notification;
-      AndroidNotification? android = message.notification?.android;
-      if(notification != kNoDefaultValue && android!=null){
-        showDialog(context: context, builder: (_){
-           return AlertDialog(
-            title: Text(notification.title),
-            content: SingleChildScrollView(child: ),
-           );
-        });
-      }
-
-     });
-  }
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => GoogleSignInProvider(),

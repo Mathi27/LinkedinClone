@@ -1,4 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/google_sign_In.dart';
 
 class sideDrawer extends StatefulWidget {
   const sideDrawer({super.key});
@@ -15,7 +20,7 @@ class _sideDrawerState extends State<sideDrawer> {
         children: [
           UserAccountsDrawerHeader(
             accountName: Text(
-              'Mathi Yuvarajan T.K',
+              '${FirebaseAuth.instance.currentUser!.displayName}',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
             ),
@@ -26,7 +31,7 @@ class _sideDrawerState extends State<sideDrawer> {
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.network(
-                  'https://media-exp1.licdn.com/dms/image/C4D03AQE3A26E28TqRw/profile-displayphoto-shrink_800_800/0/1653070721454?e=2147483647&v=beta&t=Um1dp3qvLA6x13K8YGdMNATY9t7WqrcnFDDDNxVP6I4',
+                  '${FirebaseAuth.instance.currentUser!.photoURL}',
                   width: 90,
                   height: 90,
                   fit: BoxFit.cover,
@@ -78,7 +83,12 @@ class _sideDrawerState extends State<sideDrawer> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(255, 245, 82, 70)),
-                  onPressed: () {},
+                  onPressed: () {
+                    final provider = Provider.of<GoogleSignInProvider>(context,
+                        listen: false);
+                    provider.googleSignIn.signOut();
+                    FirebaseAuth.instance.signOut();
+                  },
                   child: Text('Logout'),
                 )
               ],

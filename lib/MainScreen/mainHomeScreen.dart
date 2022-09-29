@@ -6,6 +6,7 @@ import 'package:linkedinui/MainScreen/jobs.dart';
 import 'package:linkedinui/MainScreen/Home.dart';
 import 'package:linkedinui/searchPage.dart';
 import 'package:linkedinui/MainScreen/NavigationDrawer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class mainHomeScreenPage extends StatefulWidget {
   const mainHomeScreenPage({super.key});
@@ -40,8 +41,8 @@ class _homeState extends State<mainHomeScreenPage> {
           children: [
             Card(
               semanticContainer: true,
-              child: Image.asset(
-                "assets/mydp.jpeg",
+              child: Image.network(
+                '${FirebaseAuth.instance.currentUser!.photoURL}',
                 width: 35,
                 fit: BoxFit.fill,
               ),

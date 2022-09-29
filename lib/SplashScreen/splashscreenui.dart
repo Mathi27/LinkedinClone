@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:linkedinui/MainScreen/homepages_new.dart';
 import 'package:lottie/lottie.dart';
 import 'package:linkedinui/LoginScreen/loginscreen.dart';
 
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       Duration(seconds: 3),
       () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => signupui()),
+        MaterialPageRoute(builder: (context) => Homepg()),
       ),
     );
   }

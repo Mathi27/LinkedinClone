@@ -4,6 +4,8 @@ import 'package:linkedinui/MainScreen/mainHomeScreen.dart';
 import 'package:linkedinui/LoginScreen/joinNow.dart';
 import 'package:linkedinui/MainScreen/Home.dart';
 
+import '../LoginScreen/loginscreen.dart';
+
 class Homepg extends StatelessWidget {
   const Homepg({super.key});
 
@@ -22,9 +24,9 @@ class Homepg extends StatelessWidget {
               child: Text('Something went Wrong !'),
             );
           } else if (snapshot.hasData) {
-            return HomeScreenPage();
+            return mainHomeScreenPage();
           } else {
-            return JoinNow();
+            return signupui();
           }
         },
       ),
