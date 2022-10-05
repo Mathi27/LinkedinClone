@@ -1,16 +1,6 @@
 # linkedinui
 
-A new Flutter project.
-
+This is a LinkedIn Clone (Flutter)
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+LinkedIn enables you to network with people and professional organizations in your industry. This is a great way to stay up to date with the latest developments, and to share information with others in your field. 
