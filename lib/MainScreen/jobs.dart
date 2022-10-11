@@ -10,128 +10,290 @@ class jobsPage extends StatefulWidget {
 class _jobsPageState extends State<jobsPage> {
   @override
   Widget build(BuildContext context) {
+    double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
     return ListView(
       children: [
-        buildBackgroundCard(),
+        Container(
+          padding: EdgeInsets.only(top: 10, left: 20, bottom: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.bookmark_border_outlined),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text("My jobs"),
+                ],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.post_add_sharp),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text("Post a job"),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 10,
+                color: Color.fromARGB(255, 230, 230, 230),
+              ),
+              Card(
+                color: Colors.white,
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Recommended for you",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            child: Image.asset('assets/uplersLogo.png'),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Remote Android Developer",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text("Uplers"),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text("Hyderabad,Telangana,India (Remote)"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 50,
+                          ),
+                          Icon(Icons.bookmark_outline_outlined),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            child: Image.asset('assets/Mutual_Mobile_Logo.png'),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Intern/ Associate Engineer",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              Text("Mutual Mobile"),
+                              Text("TamilNadu,Chennai"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 65,
+                          ),
+                          Icon(Icons.bookmark_outline_outlined),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            child: Image.asset('assets/marknow.jpeg'),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "MERN Stac Developer Intern",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              Text("Markoknow"),
+                              Text("TamilNadu,Chennai"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 50,
+                          ),
+                          Icon(Icons.bookmark_outline_outlined),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
         SizedBox(
           height: 10,
         ),
-        buildIconCard(),
+        Container(
+          height: 2,
+          color: Color.fromARGB(255, 202, 202, 202),
+        ),
+        Container(
+          child: TextButton(
+            child: Text("Show all"),
+            onPressed: () {},
+          ),
+        ),
+        Container(
+          height: 8,
+          color: Color.fromARGB(255, 230, 230, 230),
+        ),
+        Container(
+          height: 4,
+          color: Color.fromARGB(255, 223, 167, 0),
+        ),
         SizedBox(
           height: 10,
         ),
-        BuildBurger(),
+        Container(
+          padding: EdgeInsets.only(left: 10, bottom: 10),
+          child: Row(
+            children: [
+              Image.asset(
+                'assets/Linkedin+premium.png',
+                height: 20,
+                width: 20,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "P R E M I U M",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 10),
+          child: Text(
+            "Jobs where you're a top applicant",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 20),
+          child: Row(
+            children: [
+              Image.asset(
+                'assets/divinemz.png',
+                height: 50,
+                width: 50,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Development Intern",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text("Divine Myndz"),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text("Chennai,TamilNadu,India(Hybrid)"),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Row(
+                    children: [
+                      Text("3 weeks ago"),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.asset(
+                        'assets/linkedinIcon.png',
+                        height: 15,
+                        width: 15,
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Icon(Icons.circle),
+                      Text("Easy Apply"),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 70,
+              ),
+              Icon(Icons.bookmark_border_outlined),
+            ],
+          ),
+        ),
       ],
     );
   }
 }
 
-Widget buildBackgroundCard() {
-  final UrlBackgroundImage =
-      'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80';
-  return Container(
-    // width: double.infinity,
-    height: 200,
-    padding: EdgeInsets.all(24),
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.25), BlendMode.darken),
-          image: NetworkImage(UrlBackgroundImage),
-          fit: BoxFit.cover,
-        )),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Codingmart Technologies",
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        Text(
-          'Product Engineer',
-          style: TextStyle(fontSize: 14, color: Colors.white),
-        ),
-      ],
-    ),
-  );
-}
-
-Widget buildIconCard() {
-  return Card(
-    color: Color(0xFF40358a),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-    child: Container(
-      width: 160,
-      height: 160,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.access_time,
-            color: Color(0xFF00dcff),
-            size: 48,
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          Text(
-            "Active",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            "2 Times a week",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget BuildBurger() {
-  return Container(
-    color: Color(0xFF010101),
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'Test Card',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 20,
-          ),
-        ),
-        Text(
-          "Test one",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 16,
-          ),
-        ),
-        Text(
-          "Test two",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 16,
-          ),
-        )
-      ],
-    ),
-  );
+Widget JobCardWidget() {
+  return Card();
 }
