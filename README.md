@@ -1,4 +1,4 @@
-# linkedinui
+# LinkedIn Flutter Clone
 
 This is a LinkedIn Clone (Flutter)
 ## Getting Started
