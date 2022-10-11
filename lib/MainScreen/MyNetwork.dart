@@ -48,6 +48,30 @@ List<HastagTrending> HastagTrend = [
     PageName: "#personalbranding",
     Followers: "10,421,793 followers",
   ),
+  HastagTrending(
+    PageName: "#personalbranding",
+    Followers: "10,421,793 followers",
+  ),
+  HastagTrending(
+    PageName: "#personalbranding",
+    Followers: "10,421,793 followers",
+  ),
+  HastagTrending(
+    PageName: "#personalbranding",
+    Followers: "10,421,793 followers",
+  ),
+  HastagTrending(
+    PageName: "#personalbranding",
+    Followers: "10,421,793 followers",
+  ),
+  HastagTrending(
+    PageName: "#personalbranding",
+    Followers: "10,421,793 followers",
+  ),
+  HastagTrending(
+    PageName: "#personalbranding",
+    Followers: "10,421,793 followers",
+  ),
 ];
 
 class networkingPage extends StatefulWidget {
@@ -110,6 +134,9 @@ class _networkingPageState extends State<networkingPage> {
             ]),
           ),
         ),
+        SizedBox(
+          height: 10,
+        ),
         Row(
           children: [
             SizedBox(
@@ -124,7 +151,10 @@ class _networkingPageState extends State<networkingPage> {
             ),
           ],
         ),
-        ...HastagTrend.map((value) => MyWidget(ht: value)).toList(),
+        SizedBox(
+          height: 10,
+        ),
+        ...HastagTrend.map((value) => MyWidget(ht: value)),
         Container(
           width: 50,
           child: TextButton(
@@ -134,6 +164,23 @@ class _networkingPageState extends State<networkingPage> {
                       color: Color.fromARGB(255, 3, 56, 100),
                       fontWeight: FontWeight.w500,
                       fontSize: 16))),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          children: [
+            SizedBox(
+              width: 20,
+            ),
+            Text(
+              "Recommended for you",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 3, 56, 100),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
+            ),
+          ],
         )
       ],
     );
@@ -145,7 +192,9 @@ class recomendedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Card(
+      child: Container(),
+    );
   }
 }
 

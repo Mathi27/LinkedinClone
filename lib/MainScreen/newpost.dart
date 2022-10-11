@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/google_sign_In.dart';
 
 class newPostPage extends StatefulWidget {
   const newPostPage({super.key});
@@ -11,62 +15,128 @@ class _newPostPageState extends State<newPostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ElevatedButton(
-        child: Text('Post Here'),
-        onPressed: () => {
-          showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return SizedBox(
-                  height: 400,
-                  child: Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.add_a_photo_outlined),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("Add a photo"),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.video_call),
-                            Text("Take a video"),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.image_aspect_ratio),
-                            Text("Use a Template"),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.celebration),
-                            Text("Celebrate an occation"),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.my_library_add_sharp),
-                            Text("Add a document"),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.work),
-                            Text("Share that you're hiring"),
-                          ],
-                        ),
-                      ],
+      body: Container(
+        padding: EdgeInsets.all(15),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    child: ClipOval(
+                      child: Image.network(
+                        '${FirebaseAuth.instance.currentUser!.photoURL}',
+                        width: 90,
+                        height: 90,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                );
-              }),
-        },
+                  Column(
+                    children: [
+                      Text("Mathi Yuvarajan T.K"),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                          ),
+                        ),
+                        onPressed: () {
+                          showModalBottomSheet(
+                              context: context,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20),
+                              )),
+                              builder: (context) {
+                                return Container(
+                                  padding: EdgeInsets.all(16),
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.photo),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Add a Photo")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.video_call),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Take a video")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.widgets),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Use a template")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.celebration),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Celebrate an occasion")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.document_scanner),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Add a document")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.share),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Share that you're hiding")
+                                          ],
+                                        ),
+                                      ]),
+                                );
+                              });
+                        },
+                        child: Row(
+                          children: [
+                            Icon(Icons.maps_ugc_rounded),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'Choose',
+                              style: TextStyle(color: Colors.grey[800]),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
