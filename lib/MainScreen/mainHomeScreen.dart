@@ -34,7 +34,7 @@ class _homeState extends State<mainHomeScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 7, 11, 63),
+        backgroundColor: Color.fromARGB(255, 219, 219, 219),
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Row(
@@ -64,8 +64,7 @@ class _homeState extends State<mainHomeScreenPage> {
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(5, 5, 160, 5),
                     child: Row(children: [
-                      Icon(Icons.search,
-                          color: Color.fromARGB(255, 107, 105, 105)),
+                      Icon(Icons.search, color: Color.fromARGB(255, 0, 0, 0)),
                       SizedBox(
                         width: 15,
                       ),
@@ -77,13 +76,18 @@ class _homeState extends State<mainHomeScreenPage> {
             ),
             Container(
               padding: EdgeInsets.only(left: 10),
-              child: Icon(Icons.message, size: 30),
+              child: Icon(
+                Icons.message,
+                size: 30,
+                color: Colors.black,
+              ),
             )
           ],
         ),
       ),
       body: _children[selectIndex],
       bottomNavigationBar: BottomNavigationBar(
+          fixedColor: Colors.black,
           currentIndex: selectIndex,
           onTap: _NavBarNavigate,
           type: BottomNavigationBarType.fixed,
@@ -91,7 +95,6 @@ class _homeState extends State<mainHomeScreenPage> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: Colors.black,
               ),
               label: 'Home',
             ),
