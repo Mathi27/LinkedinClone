@@ -49,6 +49,18 @@ dependencies:
   firebase_crashlytics: ^2.8.12
   internet_connection_checker: ^1.0.0+1
   connectivity_plus: ^2.3.8
+  modal_bottom_sheet: ^2.1.2
+  readmore: ^2.2.0
+  flutter_reaction_button: ^2.0.1+2
+  text_divider: ^1.0.0
+  flutter_launcher_icons: ^0.10.0
+  flutter_flavor: ^3.1.1
+  grouped_list: ^5.1.2
+  flutter_chat_ui: ^1.6.5
+  dash_chat: ^1.1.16
+  cloud_firestore: ^3.5.1
+  firebase_storage: ^10.3.11
+  image_picker: ^0.8.6
   
 
     

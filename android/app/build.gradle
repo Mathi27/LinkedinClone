@@ -62,12 +62,31 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    flavorDimensions "app"
+ 
+    productFlavors{
+         production {
+            dimension "app"
+            //resValue "string","app_name","LinkedIn"
+            applicationId "com.example.linkedinui.prod"
+         }
+         staging {
+            dimension "app"
+            //resValue "string","app_name","stg LinkedIn"
+            applicationId "com.example.linkedui.stg"
+         }
+         development {
+            dimension "app"
+            //resValue "string","app_name","Dev LinkedIn"
+            applicationId "com.example.linkedinui"
+         }
+    }
 }
 
 flutter {
     source '../..'
 }
-
+  
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation platform('com.google.firebase:firebase-bom:30.4.1')
