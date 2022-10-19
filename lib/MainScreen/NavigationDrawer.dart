@@ -78,7 +78,7 @@ class _sideDrawerState extends State<sideDrawer> {
                   ],
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 8,
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
