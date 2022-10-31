@@ -67,7 +67,7 @@ List<PostHelper> posthelp = [
   ),
   PostHelper(
     ProfilePhoto: "assets/profiledp.jpg",
-    Name: "pravin",
+    Name: "Pravin Kumar",
     Designation: "React Developer",
     Time: "16hrs",
     PostDescription:

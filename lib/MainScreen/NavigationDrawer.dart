@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
-
 import '../Provider/google_sign_In.dart';
+import '../Settings/SettingScreen.dart';
 
 class sideDrawer extends StatefulWidget {
   const sideDrawer({super.key});
@@ -58,7 +58,7 @@ class _sideDrawerState extends State<sideDrawer> {
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 SizedBox(
-                  height: 400,
+                  height: 350,
                 ),
                 Row(
                   children: [
@@ -74,7 +74,30 @@ class _sideDrawerState extends State<sideDrawer> {
                       "Access My Premium",
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                    )
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.settings),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingPage()),
+                        );
+                      },
+                      child: Text("Settings",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 18)),
+                    ),
                   ],
                 ),
                 SizedBox(
