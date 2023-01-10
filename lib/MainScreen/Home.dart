@@ -3,6 +3,13 @@ import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 import 'package:linkedinui/MainScreen/PostHelper.dart';
 import 'package:readmore/readmore.dart';
 import 'package:text_divider/text_divider.dart';
+import 'package:linkedinui/Comment/commentlinkedin.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:like_button/like_button.dart';
 
 List<PostHelper> posthelp = [
   PostHelper(
@@ -115,7 +122,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           SizedBox(
             height: 5,
           ),
-          ...posthelp.map((e) => PostContainerOne(e)),
+          ...posthelp.map((e) => PostContainerOne(context, e)),
         ],
       ),
     );
@@ -123,7 +130,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
 }
 
 // This Widget contains employee with post alone.
-Widget PostContainerOne(PostHelper postHelper) {
+Widget PostContainerOne(BuildContext context, PostHelper postHelper) {
   return Container(
     color: Colors.white,
     height: 650,
@@ -290,14 +297,33 @@ Widget PostContainerOne(PostHelper postHelper) {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.thumb_up,
-                      color: Color.fromARGB(255, 13, 68, 94),
+                    LikeButton(
+                      likeCount: 0,
                     ),
-                    Icon(Icons.comment),
-                    Icon(
-                      Icons.share,
-                      color: Colors.black,
+                    // InkWell(
+                    //   child: Icon(
+                    //     Icons.thumb_up,
+                    //     color: Color.fromARGB(255, 13, 68, 94),
+                    //   ),
+                    // ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => CommentLinkedin(),
+                        ));
+                      },
+                      // Todo:Insert the page route.
+                      child: Icon(Icons.comment),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        await Share.share("Shre this post",
+                            subject: "Mathi Yuvarajan sharing the post....");
+                      },
+                      child: Icon(
+                        Icons.share,
+                        color: Colors.black,
+                      ),
                     ),
                     Icon(Icons.send),
                   ]),

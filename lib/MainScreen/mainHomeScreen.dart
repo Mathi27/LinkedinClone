@@ -8,6 +8,7 @@ import 'package:linkedinui/searchPage.dart';
 import 'package:linkedinui/MainScreen/NavigationDrawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:linkedinui/Chats/ChatUI.dart';
+import 'package:linkedinui/ChatsV2/chatsPage.dart';
 
 class mainHomeScreenPage extends StatefulWidget {
   const mainHomeScreenPage({super.key});
@@ -79,7 +80,7 @@ class _homeState extends State<mainHomeScreenPage> {
               padding: EdgeInsets.only(left: 10),
               child: InkWell(
                 onTap: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => chatUi())),
+                    .push(MaterialPageRoute(builder: (context) => ChatsPage())),
                 child: Row(children: [
                   Icon(
                     Icons.message,

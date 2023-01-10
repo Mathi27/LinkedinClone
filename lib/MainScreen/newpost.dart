@@ -1,7 +1,11 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:linkedinui/StorageConnect/storageconnection.dart';
 import 'package:provider/provider.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'package:story_creator/story_creator.dart';
+import 'package:linkedinui/createTemplate/storycreate.dart';
 import '../Provider/google_sign_In.dart';
 
 class newPostPage extends StatefulWidget {
@@ -14,6 +18,7 @@ class newPostPage extends StatefulWidget {
 class _newPostPageState extends State<newPostPage> {
   @override
   Widget build(BuildContext context) {
+    final Storage stroage = Storage();
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(15),
@@ -65,7 +70,52 @@ class _newPostPageState extends State<newPostPage> {
                                             SizedBox(
                                               width: 10,
                                             ),
-                                            Text("Add a Photo")
+                                            InkWell(
+                                                onTap: () async {
+                                                  final results =
+                                                      await FilePicker.platform
+                                                          .pickFiles(
+                                                    allowMultiple: false,
+                                                    type: FileType.custom,
+                                                    allowedExtensions: [
+                                                      'png',
+                                                      'jpg'
+                                                    ],
+                                                  );
+                                                  if (results == null) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      const SnackBar(
+                                                        backgroundColor:
+                                                            Colors.red,
+                                                        content: Text(
+                                                          "No File Selected",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400),
+                                                        ),
+                                                      ),
+                                                    );
+                                                    return null;
+                                                  }
+                                                  final path =
+                                                      results.files.single.path;
+                                                  final filename =
+                                                      results.files.single.name;
+                                                  stroage
+                                                      .uploadFile(
+                                                          path!, filename)
+                                                      .then((value) =>
+                                                          print("done"));
+                                                  print(path);
+                                                  print(filename);
+                                                },
+                                                child: Text("Add a Photo"))
                                           ],
                                         ),
                                         Row(
@@ -83,7 +133,16 @@ class _newPostPageState extends State<newPostPage> {
                                             SizedBox(
                                               width: 10,
                                             ),
-                                            Text("Use a template")
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.of(context)
+                                                    .push(MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TemplateCreator(),
+                                                ));
+                                              },
+                                              child: Text("Use a template"),
+                                            ),
                                           ],
                                         ),
                                         Row(

@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import '../Provider/google_sign_In.dart';
 import '../Settings/SettingScreen.dart';
+import '../ProfileEdit/profileEdits.dart';
+import '../LoginScreen/loginscreen.dart';
 
 class sideDrawer extends StatefulWidget {
   const sideDrawer({super.key});
@@ -58,7 +60,28 @@ class _sideDrawerState extends State<sideDrawer> {
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 SizedBox(
-                  height: 350,
+                  height: 20,
+                ),
+                InkWell(
+                  // onTap: Navigator.of(context).push(MaterialPageRoute(
+                  //   builder: (context) => MyWidget(),
+                  // )),
+                  child: InkWell(
+                    onTap: () {
+                      FirebaseAuth.instance.signOut().then((value) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => signupui())));
+                      });
+                    },
+                    child: Text("Logout Instance",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                  ),
+                ),
+                SizedBox(
+                  height: 310,
                 ),
                 Row(
                   children: [
